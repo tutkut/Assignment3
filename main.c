@@ -3,12 +3,6 @@
 #include <string.h>
 
 #include "list.h"
-//#include "list.c"
-
-
-#define BOOLEAN int
-#define TRUE 1
-#define FALSE 0
 
 int main(void)
 {

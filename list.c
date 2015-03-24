@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//#include "list.h"
 #define BOOLEAN int
 #define TRUE 1
 #define FALSE 0
@@ -15,7 +14,7 @@ typedef struct NODE
 aNode* trail = NULL;
 aNode* head = NULL;
 
-void prettyPrint();
+void prettyPrint()
 {
 	if(head != NULL)
 	{	
@@ -32,7 +31,7 @@ void prettyPrint();
 	printf("\n");
 }
 
-void add(int value);
+void add(int value)
 {
 	if (head == NULL)
 	{
@@ -75,7 +74,7 @@ struct NODE *find(int numDelete)
 		return NULL;
 };
 
-BOOLEAN delete(int numDelete);
+BOOLEAN delete(int numDelete)
 {
 	aNode* deleted = find(numDelete);
 	if (deleted != NULL && deleted == head)
