@@ -1,8 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "list.h"
+#include <string.h>
 
-MAIN
+#include "list.h"
+//#include "list.c"
+
+
+#define BOOLEAN int
+#define TRUE 1
+#define FALSE 0
+
+int main(void)
 {
 	char fname[20];
 	printf("Please enter a file name or a path to a file: ");

@@ -1,8 +1,38 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "list.h"
 
-ADD
+//#include "list.h"
+#define BOOLEAN int
+#define TRUE 1
+#define FALSE 0
+
+typedef struct NODE
+{
+	int value;
+	struct NODE* next;
+}aNode;
+
+aNode* trail = NULL;
+aNode* head = NULL;
+
+void prettyPrint();
+{
+	if(head != NULL)
+	{	
+		aNode* temp = head;
+		printf("Content of list is: ");
+		while(temp != NULL)
+		{
+			printf(" %d ", temp->value);
+			temp = temp->next;
+		}
+	}
+	else
+		printf("List is empty.");
+	printf("\n");
+}
+
+void add(int value);
 {
 	if (head == NULL)
 	{
@@ -26,23 +56,6 @@ ADD
 	}
 }
 
-PRINT
-{
-	if(head != NULL)
-	{	
-		aNode* temp = head;
-		printf("Content of list is: ");
-		while(temp != NULL)
-		{
-			printf(" %d ", temp->value);
-			temp = temp->next;
-		}
-	}
-	else
-		printf("List is empty.");
-	printf("\n");
-}
-
 struct NODE *find(int numDelete)
 {
 		aNode* temp = head;
@@ -62,7 +75,7 @@ struct NODE *find(int numDelete)
 		return NULL;
 };
 
-DELETE
+BOOLEAN delete(int numDelete);
 {
 	aNode* deleted = find(numDelete);
 	if (deleted != NULL && deleted == head)
