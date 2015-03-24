@@ -64,12 +64,18 @@ struct NODE *find(int numDelete)
 
 DELETE
 {
-	trail = (aNode *)malloc(sizeof(aNode));
-	trail->next = head;
-
 	aNode* deleted = find(numDelete);
-	if(deleted!= NULL)
+	if (deleted != NULL && deleted == head)
 	{
+		head = head->next;
+		return TRUE;
+
+	}
+	else if(deleted!= NULL)
+	{
+		trail = (aNode *)malloc(sizeof(aNode));
+		trail->next = head;
+
 		while(trail->next != deleted)
 		{
 			trail = trail->next;
