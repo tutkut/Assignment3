@@ -25,3 +25,20 @@ ADD
 		freeSpot->next = newNode; 
 	}
 }
+
+PRINT
+{
+	if(head != NULL)
+	{	
+		aNode* temp = head;
+		printf("Content of list is: ");
+		while(temp != NULL)
+		{
+			printf(" %d ", temp->value);
+			temp = temp->next;
+		}
+	}
+	else
+		printf("List is empty.");
+	printf("\n");
+}
