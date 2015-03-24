@@ -11,11 +11,51 @@ MAIN
 	FILE *data = fopen(fname, "rt");
 
 	int value;
-	fscanf(data, "%d", &value);
 	while (!feof(data))
 	{
-		printf("%d", value);
-		fscanf(data, "%d", &value);	
+		fscanf(data, "%d", &value);
+		add(value);
+	}
+
+	prettyPrint();
+
+
+	BOOLEAN userDelete = TRUE;
+	int numDelete;
+	char userAns[10];
+
+	while(userDelete == TRUE && head != NULL)
+	{
+		printf("Please enter the integer number you want to delete: " );
+		scanf("%d", &numDelete);
+
+		BOOLEAN deleted = delete(numDelete);
+		if (deleted == TRUE)
+		{
+			printf("NUMBER WAS DELETED.\n");
+		}
+		else if (deleted == FALSE)
+		{
+			printf("NUMBER WAS NOT FOUND.\n");
+		}
+
+		prettyPrint();
+
+		if (head != NULL)
+		{
+			printf("Do you want to delete another number from the list?	");
+			scanf("%s", userAns);
+			if (strcmp(userAns, "y") == 0 || strcmp(userAns,"Y") == 0 || strcmp(userAns,"Yes") == 0 ||
+			strcmp(userAns, "YES") == 0 || strcmp(userAns, "yes") == 0)
+			{
+				userDelete = TRUE;
+			}
+			else
+			{
+				userDelete = FALSE;
+			}
+		}
+		
 	}
 	return 0;
 }
