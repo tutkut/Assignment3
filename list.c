@@ -42,3 +42,44 @@ PRINT
 		printf("List is empty.");
 	printf("\n");
 }
+
+struct NODE *find(int numDelete)
+{
+		aNode* temp = head;
+		while(temp != NULL)
+		{
+			if(temp->value == numDelete)
+			{
+				return temp;
+				break;
+			}
+			else
+			{
+				temp = temp->next;
+
+			}
+		}
+		return NULL;
+};
+
+DELETE
+{
+	trail = (aNode *)malloc(sizeof(aNode));
+	trail->next = head;
+
+	aNode* deleted = find(numDelete);
+	if(deleted!= NULL)
+	{
+		while(trail->next != deleted)
+		{
+			trail = trail->next;
+		}
+		trail->next = deleted->next;
+		deleted = NULL;
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
